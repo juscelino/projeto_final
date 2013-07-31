@@ -18,11 +18,11 @@
 				<li><a href="#" title="Página Inicial">Página Inicial</a></li>
 				<li><a href="História.php" title="Lagoa Salgada">Lagoa Salgada</a></li>
                                 <li><a href="gabinete.php" title="Gabinete do Prefeito">Gabinete do Prefeito</a></li>
-				<li><a href="#" title="Secretarias">Secretarias</a></li>
-                                <li><a href="#" title="Serviços">Serviços</a></li>
-                                <li><a href="#" title="Calendário de Pagamentos">Calendário de Pagamentos</a></li>
-                                <li><a href="#" title="Concursos">Concursos</a></li>
-				<li><a href="#" title="SAC">SAC</a></li>                                                
+				<li><a href="secretarias" title="Secretarias">Secretarias</a></li>
+                                <li><a href="serviços" title="Serviços">Serviços</a></li>
+                                <li><a href="calendario_pagamento" title="Calendário de Pagamentos">Calendário de Pagamentos</a></li>
+                                <li><a href="concursos" title="Concursos">Concursos</a></li>
+				<li><a href="contato" title="contato">Contato</a></li>                                                
             </ul>
         </div>
         
