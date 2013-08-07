@@ -6,29 +6,31 @@
 </head>
  <body>
 
+     <form id="formulario" action="processa.php" method="POST" >
 	<fieldset class="a">
   
 		<center>	<tag>	<h2> Cadastro de Usuário </h2>	</tag>	</center>
 	  
 			<fieldset  class="a1"> 
 				<legend>Dados Pessoais</legend>
-					<div> 
+				<div> 
 						<label class= "b1" for="nome"> Nome : </label>
-						<input class= "c1" type="text" id="nome"/><br/>
+						<input class= "c1" type="text" id="nome" name="nome"/><br/>
 					</div>
 					<div>
 						<label class= "b2" for="Sobrenome"> Sobrenome : </label>
-						<input class= "c2" type="password" id="sobrenome"/><br/>  
+						<input class= "c2" type="text" id="sobrenome" name="sobrenome"/><br/>  
 					</div>
 					<div>
-						<input class= "c4" type="radio" name="sex" id="Masculino"/>
-						<label class= "b4" for="Masculino"> Masculino </label>
-						<input class= "c5" type="radio" name="sex" id="Feminino"/> 	  
-						<label class= "b5" for="Feminino"> Feminino </label>   
+                                                <select name="sexo" id="sexo">
+                                                    <option label="Selecione" value="-1" selected="selected">Selecione</option>
+                                                    <option label="Feminino" value="2">Feminino</option>
+                                                    <option label="Masculino" value="3">Masculino</option>
+                                                </select>
 					</div>
 					<div>	
-						<label class= "b6" for="E-mail">E-mail : </label>
-						<input class= "c6" type="password" id="E-mail"/><br/>
+						<label class= "b6" for="E-mail" >E-mail : </label>
+						<input class= "c6" type="password" id="E-mail" name="email" /><br/>
 					</div>    
 					<div>
 						<input class= "c7" type="checkbox" name="areap" value="1" id="areap1"/>
@@ -53,6 +55,7 @@
 	  
 			</fieldset>
 		<center>	<div>	<button name=”Enviar” type=”Enviar”> Enviar </button> </div>	</center>
-   </fieldset>    
+   </fieldset>   
+         </form>
     </body>
 </html>
