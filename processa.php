@@ -7,8 +7,8 @@
 
 $nome= $_POST["nome"];
 $sobrenome = $_POST["sobrenome"];
-//$sexmasculino = $_POST["sexmasculino"];
-//$sexfeminino = $_POST["sexfeminino"];
+$sexo = $_POST["sexo"];
+$sexo = $_POST["sexo"];
 //$email = $_POST["email"];
 //$areap = $_POST["areap"];
 $erro = 0;
