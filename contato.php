@@ -30,7 +30,7 @@
 					</div>
 					<div>	
 						<label class= "b6" for="E-mail" >E-mail : </label>
-						<input class= "c6" type="password" id="E-mail" name="email" /><br/>
+						<input class= "c6" type="text" id="E-mail" name="email" /><br/>
 					</div>    
 					<div>
 						<input class= "c7" type="checkbox" name="areap" value="1" id="areap1"/>
@@ -42,16 +42,16 @@
 			<fieldset  class="a2"> 
 				<legend> Deixe sua Dica </legend>
 				<div>
-					<label class= "b9" for=”linguagem”> Tipo de Mensagem: </label>
-					<select name="linguagem" id="linguagem">
+					<label class= "b9" for=”mensagem”> Tipo de Mensagem: </label>
+					<select name="comentarios" id="comentarios">
 						<option label="Selecione" value="-1" selected="selected">Selecione</option>
-						<option label="Sugestão" value="A">Sugestão</option>
-						<option label="Reclamação" value="B">Reclamação</option>
-						<option label="Elogios" value="V">Elogios</option>
-						<option label="Outros" value="C">Outros</option>
+						<option label="Sugestão" value="2">Sugestão</option>
+						<option label="Reclamação" value="3">Reclamação</option>
+						<option label="Elogios" value="4">Elogios</option>
+						<option label="Outros" value="5">Outros</option>
 					</select>	<br/><br/>
 				</div>
-				<div> Mensagem </div>	<textarea name="Comentários"></textarea>	</div>
+				<div> Mensagem </div>	<textarea name="_comentarios"></textarea>	</div>
 	  
 			</fieldset>
 		<center>	<div>	<button name=”Enviar” type=”Enviar”> Enviar </button> </div>	</center>
