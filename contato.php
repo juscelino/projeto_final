@@ -22,7 +22,9 @@
 						<input class= "c2" type="text" id="sobrenome" name="sobrenome"/><br/>  
 					</div>
 					<div>
-                                                <select name="sexo" id="sexo">
+                                              <label class= "b3" for=”selecione”> Selecione: </label>  
+                                            
+                                            <select name="sexo" id="sexo">
                                                     <option label="Selecione" value="-1" selected="selected">Selecione</option>
                                                     <option label="Feminino" value="2">Feminino</option>
                                                     <option label="Masculino" value="3">Masculino</option>
@@ -42,7 +44,7 @@
 			<fieldset  class="a2"> 
 				<legend> Deixe sua Dica </legend>
 				<div>
-					<label class= "b9" for=”mensagem”> Tipo de Mensagem: </label>
+					<label class= "b9" for=”TipodeMensagem”> Tipo de Mensagem: </label>
 					<select name="comentarios" id="comentarios">
 						<option label="Selecione" value="-1" selected="selected">Selecione</option>
 						<option label="Sugestão" value="2">Sugestão</option>
