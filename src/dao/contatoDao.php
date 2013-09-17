@@ -11,7 +11,7 @@ class ContatoDao{
     public function insertContato($contato){
         $conn = get_connection();
         
-        $stmt = $conn->prepare("INSERT INTO contato(nome,sobrenome,sexo,email,tipo_mensagem,mensagem) " +
+        $stmt = $conn->prepare("INSERT INTO contato(nome,sobrenome,sexo,email,tipo_mensagem,mensagem,id) " +
                                 "VALUES(?,?,?,?,?,?)");
         /* @var $contato type */
         $stmt->bindParam(1, $contato->get_nome());
@@ -20,6 +20,7 @@ class ContatoDao{
         $stmt->bindParam(4, $contato->get_email());
         $stmt->bindParam(5, $contato->get_tipo_mensagem());
         $stmt->bindParam(6, $contato->get_mensagem());
+        $stmt->bindParam(7, $contato->get_id());
         $stmt->execute();
                       
     }
