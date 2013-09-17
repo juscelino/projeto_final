@@ -13,12 +13,12 @@
 class contato {
     //put your code here
     
-    public $nome;
-    public $sobrenome;
-    public $sexo;
-    public $email;
-    public $tipo_mensagem;
-    public $mensagem;
+    private $nome;
+    private $sobrenome;
+    private $sexo;
+    private $email;
+    private $tipo_mensagem;
+    private $mensagem;
     
     function __construct($nome, $sobrenome, $sexo, $email, $tipo_mensagem, $mensagem) {
         $this->nome = $nome;
