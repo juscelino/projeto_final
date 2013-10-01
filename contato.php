@@ -56,7 +56,7 @@
 				<div> Mensagem </div>	<textarea name="_comentarios"></textarea>	</div>
 	  
 			</fieldset>
-		<center>	<div>	<button name=”Enviar” type=”Enviar”> Enviar </button> </div>	</center>
+		<center>	<div>	<button name=”Envia” type=”Enviar”> Enviar </button> </div>	</center>
    </fieldset>   
          </form>
     </body>
