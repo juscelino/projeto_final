@@ -4,28 +4,34 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-require_once '../src/dominio/contato.class.php';
-include 'connectionFactory.inc.php';
+require_once './src/dominio/contato.class.php';
+require_once './src/dao/connectionFactory.inc.php';
 
 class ContatoDao{
     
     public function insertContato($contato){
         try{
             $conn = get_connection();
-
-            $stmt = $conn->prepare("INSERT INTO contato(idDados_Pessoais,nome,sobrenome,
-                                    sexo,email,tipo_mensagem,mensagem,id) " + 
+           
+            $stmt = $conn->prepare("INSERT INTO Dados_Pessoais(idDados_Pessoais,nome,sobrenome,
+                                    sexo,email,tipo_mensagem,comentario) " + 
                                     "VALUES(:idDados_Pessoais, :nome, :sobrenome, :sexo
-                                    :email, :tipo_mensagem, :mensagem)"); 
+                                    :email, :tipo_mensagem, :comentario)");
             /* @var $contato type */
-            $stmt->bindValue(":idDados_Pessoais", $contato->get_idDados_Pessoais(), PDO::PARAM_STR);
-            $stmt->bindParam(":nome", $contato->getNome(), PDO::PARAM_STR);
-            $stmt->bindParam(":sobrenome", $contato->getSobrenome(), PDO::PARAM_STR);
-            $stmt->bindParam(":sexo", $contato->getSexo(), PDO::PARAM_STR);
-            $stmt->bindParam(":email", $contato->getEmail(), PDO::PARAM_STR);
-            $stmt->bindParam("tipo_mensagem", $contato->getTipo_mensagem(), PDO::PARAM_STR);
-            $stmt->bindParam("mensagem", $contato->getMensagem(), PDO::PARAM_STR);
-            $stmt->execute();
+            /*$stmt->bindValue(":idDados_Pessoais", $contato->get_idDados_Pessoais(), PDO::PARAM_INT);
+            $stmt->bindValue(":nome", $contato->getNome(), PDO::PARAM_VACHAR);
+            $stmt->bindValue(":sobrenome", $contato->getSobrenome(), PDO::PARAM_VACHAR);
+            $stmt->bindValue(":sexo", $contato->getSexo(), PDO::PARAM_VACHAR);
+            $stmt->bindValue(":email", $contato->getEmail(), PDO::PARAM_VACHAR);
+            $stmt->bindValue("tipo_mensagem", $contato->getTipo_mensagem(), PDO::PARAM_VACHAR);
+            $stmt->bindValue("comentario", $contato->getMensagem(), PDO::PARAM_VACHAR);
+            
+            $stmt->execute();*/
+            
+           $stmt->execute(array($contato->get_idDados_Pessoais(),$contato->getNome(),
+                                 $contato->getSobrenome(),$contato->getSexo(),
+                                 $contato->getEmail(),$contato->getTipo_mensagem(),
+                                 $contato->getMensagem()));
 
             return null;
         } catch (PDOException $ex){
@@ -36,7 +42,7 @@ class ContatoDao{
         
         $conn = get_connection();
         
-        $stmt = $conn->prepare("DELETE FROM contato WHERE idDados_Pessoais = ?");
+        $stmt = $conn->prepare("DELETE FROM Dados_Pessoais WHERE idDados_Pessoais = ?");
         
         $stmt->bindParam(1,$contato->get_idDados_Pessoais());
         $stmt->execute();
@@ -45,8 +51,8 @@ class ContatoDao{
     public function updateContato($idDados_Pessoais,$contato){
         $conn = get_connection();
         
-        $sql ="UPDATE Contato SET nome = ?, sobrenome = ?, sexo = ?, email = ?, 
-                tipo_mensagem = ?, mensagem = ?, WHERE idDados_Pessoais = ?";
+        $sql ="UPDATE Dados_Pessoais SET nome = ?, sobrenome = ?, sexo = ?, email = ?, 
+                tipo_mensagem = ?, comentario = ?, WHERE idDados_Pessoais = ?";
         
         $stmt = $conn->prepare($sql);
 	$stmt->bindParam(1,$contato->getnome() );
@@ -63,7 +69,7 @@ class ContatoDao{
     public function selectContato($idDados_Pessoais){
         $conn = get_connection();
         
-        $sql ="SELECT * FROM Contato WHERE idDados_Pessoais = ?";
+        $sql ="SELECT * FROM Dados_Pessoais WHERE idDados_Pessoais = ?";
         
         $stmt = $conn->prepare($sql);
         $stmt ->bindParam(1, $idDados_Pessoais);        
@@ -76,7 +82,7 @@ class ContatoDao{
             echo $ron->sexo . "<br />";
             echo $ron->email . "<br />";
             echo $ron->tipo_mensagem . "<br />";
-            echo $ron->mensagem . "<br />";     
+            echo $ron->comentario . "<br />";     
         }
         
     }
@@ -84,7 +90,7 @@ class ContatoDao{
     public function selectAllContato(){
         $conn = get_connection();
         
-        $rs = $conn->query("SELECT * FROM contato");
+        $rs = $conn->query("SELECT * FROM Dados_Pessoais");
         while($row = $rs->fetch(PDO::FETCH_OBJ)){
             echo $row->idDados_Pessoais . "<br />";
             echo $row->nome . "<br />";
@@ -92,7 +98,7 @@ class ContatoDao{
             echo $row->sexo . "<br />";
             echo $row->email . "<br />";
             echo $row->tipo_mensagem . "<br />";
-            echo $row->mensagem . "<br />";
+            echo $row->comentario . "<br />";
         }
     
     }  
