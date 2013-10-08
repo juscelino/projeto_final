@@ -13,13 +13,14 @@
 class contato {
     //put your code here
     
+    private $idDados_Pessoais;
     private $nome;
     private $sobrenome;
     private $sexo;
     private $email;
     private $tipo_mensagem;
     private $mensagem;
-    
+                //$nome, $sobrenome, $sexo, $email, $comentarios, $_comentarios
     function __construct($nome, $sobrenome, $sexo, $email, $tipo_mensagem, $mensagem) {
         $this->nome = $nome;
         $this->sobrenome = $sobrenome;
@@ -78,5 +79,12 @@ public function setMensagem($mensagem) {
 $this->mensagem = $mensagem;
 }
 
+public function getIdDados_Pessoais(){
+    return $this->idDados_Pessoais;
+}
+
+public function setIdDados_Pessoais($id){
+    $this->idDados_Pessoais = $id;
+}
 }
 ?>

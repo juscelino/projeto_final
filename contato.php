@@ -45,7 +45,7 @@
 				<legend> Deixe sua Dica </legend>
 				<div>
 					<label class= "b9" for=”TipodeMensagem”> Tipo de Mensagem: </label>
-					<select name="comentarios" id="comentarios">
+					<select name="tipo_mensagem" id="comentarios">
 						<option label="Selecione" value="-1" selected="selected">Selecione</option>
 						<option label="Sugestão" value="2">Sugestão</option>
 						<option label="Reclamação" value="3">Reclamação</option>
@@ -53,7 +53,7 @@
 						<option label="Outros" value="5">Outros</option>
 					</select>	<br/><br/>
 				</div>
-				<div> Mensagem </div>	<textarea name="_comentarios"></textarea>	</div>
+				<div> Mensagem </div>	<textarea name="comentarios"></textarea>	</div>
 	  
 			</fieldset>
 		<center>	<div>	<button name=”Envia” type=”Enviar”> Enviar </button> </div>	</center>

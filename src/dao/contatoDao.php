@@ -10,22 +10,28 @@ include 'connectionFactory.inc.php';
 class ContatoDao{
     
     public function insertContato($contato){
-        $conn = get_connection();
-        
-        $stmt = $conn->prepare("INSERT INTO contato(idDados_Pessoais,nome,sobrenome,sexo,email,tipo_mensagem,mensagem,id) " +
-                                "VALUES(?,?,?,?,?,?)"); 
-        /* @var $contato type */
-        $stmt->bindParam(1, $contato->get_idDados_Pessoais());
-        $stmt->bindParam(2, $contato->get_nome());
-        $stmt->bindParam(3, $contato->get_sobrenome());
-        $stmt->bindParam(4, $contato->get_sexo());
-        $stmt->bindParam(5, $contato->get_email());
-        $stmt->bindParam(6, $contato->get_tipo_mensagem());
-        $stmt->bindParam(7, $contato->get_mensagem());
-        $stmt->execute();
-                      
+        try{
+            $conn = get_connection();
+
+            $stmt = $conn->prepare("INSERT INTO contato(idDados_Pessoais,nome,sobrenome,
+                                    sexo,email,tipo_mensagem,mensagem,id) " + 
+                                    "VALUES(:idDados_Pessoais, :nome, :sobrenome, :sexo
+                                    :email, :tipo_mensagem, :mensagem)"); 
+            /* @var $contato type */
+            $stmt->bindValue(":idDados_Pessoais", $contato->get_idDados_Pessoais(), PDO::PARAM_STR);
+            $stmt->bindParam(":nome", $contato->getNome(), PDO::PARAM_STR);
+            $stmt->bindParam(":sobrenome", $contato->getSobrenome(), PDO::PARAM_STR);
+            $stmt->bindParam(":sexo", $contato->getSexo(), PDO::PARAM_STR);
+            $stmt->bindParam(":email", $contato->getEmail(), PDO::PARAM_STR);
+            $stmt->bindParam("tipo_mensagem", $contato->getTipo_mensagem(), PDO::PARAM_STR);
+            $stmt->bindParam("mensagem", $contato->getMensagem(), PDO::PARAM_STR);
+            $stmt->execute();
+
+            return null;
+        } catch (PDOException $ex){
+            echo 'ERRO: '.$ex->getMessage();
+        }
     }
-    
     public function deleteContato($contato){
         
         $conn = get_connection();
@@ -89,7 +95,8 @@ class ContatoDao{
             echo $row->mensagem . "<br />";
         }
     
-    }
-}  
+    }  
+    
+}
 
 ?>

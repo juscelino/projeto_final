@@ -4,16 +4,29 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+    require_once './src/controller/ContatoControl.php';
+    
+    $nome= $_POST["nome"];
+    $sobrenome = $_POST["sobrenome"];
+    $sexo = $_POST["sexo"];
+    $email = $_POST["email"];
+    $tipo_mensagem = $_POST["tipo_mensagem"];
+    $comentarios = $_POST["comentarios"];
+    $erro = 0;
 
-$nome= $_POST["nome"];
-$sobrenome = $_POST["sobrenome"];
-$sexo = $_POST["sexo"];
-$email = $_POST["email"];
-$comentarios = $_POST["comentarios"];
-$_comentarios = $_POST["_comentarios"];
-$erro = 0;
+    $contatoControl = new contatoControl();
 
-                                          // preg_match so aceita o que vc definir no campo entre ''.
+    $contatoControl->cadastroContato($nome, $sobrenome, $sexo, $email, $tipo_mensagem, $comentarios);
+
+
+
+
+
+
+
+
+// preg_match so aceita o que vc definir no campo entre ''.
+/*
     if (empty($nome) or strstr($nome, ' ') or ereg('^[A-Z][a-z`´^~ç¨]', $nome)== FALSE){
         echo 'Favor digitar seu nome!'; 
         $erro = 1;
@@ -78,5 +91,5 @@ $erro = 0;
     else {
         echo $_comentarios . " " . $_comentarios;
         echo '<br/>';
-    }
+    } */
 ?>
